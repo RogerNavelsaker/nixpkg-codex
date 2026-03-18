@@ -1,0 +1,23 @@
+{
+  "stubbed": false,
+  "package": {
+    "repo": "codex",
+    "npmName": "@openai/codex",
+    "version": "0.115.0"
+  },
+  "binary": {
+    "name": "codex",
+    "upstreamName": "codex",
+    "entrypoint": "bin/codex.js",
+    "aliases": []
+  },
+  "dist": {
+    "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.115.0.tgz",
+    "hash": "sha512-uu689DHUzvuPcb39hJ+7fqy++TAvY32w9VggDpcz3HS0Sx0WadWoAPPcMK547P2T6AqfMsAtA8kspkR3tqErOg=="
+  },
+  "meta": {
+    "description": "<p align=\"center\"><code>npm i -g @openai/codex</code><br />or <code>brew install --cask codex</code></p> <p align=\"center\"><strong>Codex CLI</strong> is a coding agent from OpenAI that runs locally on your computer. <p align=\"center\">   <img src=\"https://",
+    "homepage": "https://github.com/openai/codex#readme",
+    "licenseSpdx": "Apache-2.0"
+  }
+}
