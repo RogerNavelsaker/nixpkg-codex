@@ -38,6 +38,7 @@
           package = pkgs.callPackage ./nix/package.nix { };
         in {
           default = package;
+          codex = package;
           cod = package.cod;
         });
 
