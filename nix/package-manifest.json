@@ -3,7 +3,7 @@
   "package": {
     "repo": "codex",
     "npmName": "@openai/codex",
-    "version": "0.118.0"
+    "version": "0.120.0"
   },
   "binary": {
     "name": "codex",
@@ -19,8 +19,8 @@
     ]
   },
   "dist": {
-    "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.118.0.tgz",
-    "hash": "sha512-oJhNOsP/Vu7DBUhodpP15z60cCZv3sKORqUn1+pepleqSTmc0zXJZSjz6fQOLzny9Ra6sRcvprFFKmQ3Q6+E6w=="
+    "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.120.0.tgz",
+    "hash": "sha512-e2P1Gya3dwsRe9IPOiswVz5JfR700u+/sWCqDc3jkqv2QViPkNiBmZoGhFnZL5jBpKakSjehC4/Fpspg70nHTw=="
   },
   "meta": {
     "description": "<p align=\"center\"><code>npm i -g @openai/codex</code><br />or <code>brew install --cask codex</code></p> <p align=\"center\"><strong>Codex CLI</strong> is a coding agent from OpenAI that runs locally on your computer. <p align=\"center\">   <img src=\"https://",
