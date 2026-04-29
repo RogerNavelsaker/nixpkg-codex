@@ -1,4 +1,4 @@
-{ bash, bun, bun2nix, installShellFiles, lib, makeWrapper, symlinkJoin }:
+{ bash, fetchurl, installShellFiles, lib, stdenv, stdenvNoCC, symlinkJoin }:
 
 let
   manifest = builtins.fromJSON (builtins.readFile ./package-manifest.json);
@@ -14,6 +14,10 @@ let
     if builtins.hasAttr manifest.meta.licenseSpdx licenseMap
     then licenseMap.${manifest.meta.licenseSpdx}
     else lib.licenses.unfree;
+  platformDist =
+    manifest.dist.platforms.${stdenv.hostPlatform.system}
+      or (throw "unsupported platform for ${manifest.binary.name}: ${stdenv.hostPlatform.system}");
+  targetTriple = platformDist.targetTriple;
   aliasSpecs = map (
     alias:
     if builtins.isString alias then
@@ -25,18 +29,6 @@ let
       alias
   ) (manifest.binary.aliases or [ ]);
   renderAliasArgs = args: lib.concatMapStringsSep " " lib.escapeShellArg args;
-  aliasWrappers = lib.concatMapStrings
-    (
-      alias:
-      ''
-        cat > "$out/bin/${alias.name}" <<EOF
-#!${lib.getExe bash}
-exec "$out/bin/${manifest.binary.name}" ${renderAliasArgs alias.args} "\$@"
-EOF
-        chmod +x "$out/bin/${alias.name}"
-      ''
-    )
-    aliasSpecs;
   aliasOutputLinks = lib.concatMapStrings
     (
       alias:
@@ -50,26 +42,39 @@ EOF
       ''
     )
     aliasSpecs;
-  basePackage = bun2nix.writeBunApplication {
+  basePackage = stdenvNoCC.mkDerivation {
     pname = manifest.package.repo;
     version = packageVersion;
-    packageJson = ../package.json;
-    src = lib.cleanSource ../.;
-    dontUseBunBuild = true;
-    dontUseBunCheck = true;
-    startScript = ''
-      bunx ${manifest.binary.upstreamName or manifest.binary.name} "$@"
-    '';
-    bunDeps = bun2nix.fetchBunDeps {
-      bunNix = ../bun.nix;
+    src = fetchurl {
+      url = platformDist.url;
+      hash = platformDist.hash;
     };
+    sourceRoot = "package";
+    dontBuild = true;
+    nativeBuildInputs = [ installShellFiles ];
+    installPhase = ''
+      runHook preInstall
+      mkdir -p "$out/share/${manifest.binary.name}/vendor" "$out/bin"
+      cp -RL "vendor/${targetTriple}" "$out/share/${manifest.binary.name}/vendor/${targetTriple}"
+      cat > "$out/bin/${manifest.binary.name}" <<EOF
+#!${lib.getExe bash}
+export PATH="$out/share/${manifest.binary.name}/vendor/${targetTriple}/path\''${PATH:+:\$PATH}"
+exec "$out/share/${manifest.binary.name}/vendor/${targetTriple}/codex/${manifest.binary.name}" "\$@"
+EOF
+      chmod +x "$out/bin/${manifest.binary.name}"
+      installShellCompletion --cmd ${manifest.binary.name} \
+        --bash <("$out/bin/${manifest.binary.name}" completion bash) \
+        --fish <("$out/bin/${manifest.binary.name}" completion fish) \
+        --zsh <("$out/bin/${manifest.binary.name}" completion zsh)
+      runHook postInstall
+    '';
     meta = with lib; {
       description = manifest.meta.description;
       homepage = manifest.meta.homepage;
       license = resolvedLicense;
       mainProgram = manifest.binary.name;
       platforms = platforms.linux ++ platforms.darwin;
-      broken = manifest.stubbed || !(builtins.pathExists ../bun.nix);
+      sourceProvenance = [ sourceTypes.binaryNativeCode ];
     };
   };
 in
@@ -79,24 +84,8 @@ symlinkJoin {
   name = "${manifest.binary.name}-${packageVersion}";
   outputs = [ "out" ] ++ map (alias: alias.name) aliasSpecs;
   paths = [ basePackage ];
-  nativeBuildInputs = [
-    installShellFiles
-    makeWrapper
-  ];
   postBuild = ''
-    rm -rf "$out/bin"
-    mkdir -p "$out/bin"
-    entrypoint="$(find "${basePackage}/share/${manifest.package.repo}/node_modules" -path "*/node_modules/${manifest.package.npmName}/${manifest.binary.entrypoint}" | head -n 1)"
-    cat > "$out/bin/${manifest.binary.name}" <<EOF
-#!${lib.getExe bash}
-exec ${lib.getExe' bun "bun"} "$entrypoint" "\$@"
-EOF
-    chmod +x "$out/bin/${manifest.binary.name}"
     ${aliasOutputLinks}
-    installShellCompletion --cmd ${manifest.binary.name} \
-      --bash <("$out/bin/${manifest.binary.name}" completion bash) \
-      --fish <("$out/bin/${manifest.binary.name}" completion fish) \
-      --zsh <("$out/bin/${manifest.binary.name}" completion zsh)
   '';
   meta = basePackage.meta;
 }
