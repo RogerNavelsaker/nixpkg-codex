@@ -58,8 +58,8 @@ EOF
       cp -RL "vendor/${targetTriple}" "$out/libexec/${manifest.binary.name}/vendor/${targetTriple}"
       cat > "$out/bin/${manifest.binary.name}" <<EOF
 #!${lib.getExe bash}
-export PATH="$out/libexec/${manifest.binary.name}/vendor/${targetTriple}/path\''${PATH:+:\$PATH}"
-exec "$out/libexec/${manifest.binary.name}/vendor/${targetTriple}/codex/${manifest.binary.name}" "\$@"
+export PATH="$out/libexec/${manifest.binary.name}/vendor/${targetTriple}/${manifest.binary.name}-path\''${PATH:+:\$PATH}"
+exec "$out/libexec/${manifest.binary.name}/vendor/${targetTriple}/bin/${manifest.binary.name}" "\$@"
 EOF
       chmod +x "$out/bin/${manifest.binary.name}"
       installShellCompletion --cmd ${manifest.binary.name} \
