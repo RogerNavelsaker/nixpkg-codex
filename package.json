@@ -12,7 +12,7 @@
     "postinstall": "bun x bun2nix -o bun.nix"
   },
   "dependencies": {
-    "@openai/codex": "0.142.3"
+    "@openai/codex": "0.142.4"
   },
   "devDependencies": {
     "@types/bun": "^1.3.10",
