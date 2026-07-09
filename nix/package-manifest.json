@@ -3,7 +3,7 @@
   "package": {
     "repo": "codex",
     "npmName": "@openai/codex",
-    "version": "0.143.0"
+    "version": "0.144.0"
   },
   "binary": {
     "name": "codex",
@@ -19,32 +19,32 @@
     ]
   },
   "dist": {
-    "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.143.0.tgz",
-    "hash": "sha512-6h53sNtESIYncWVwU7zEjdVajwcad/0H94MOrgGqhwBMa9RRUDVG6DU9E9euC7yRdtrsKDAkJkz/m5moZ6MU3A==",
+    "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.144.0.tgz",
+    "hash": "sha512-QFh6f+v5QUx/Vg0HjIl9HB94p7aDLBDkZjc4IXX5RXUcXHPVCZNb6Hl2R49Og/fqW7orgZkeDcgWfRANUa1WoQ==",
     "platforms": {
       "x86_64-linux": {
         "package": "@openai/codex-linux-x64",
         "targetTriple": "x86_64-unknown-linux-musl",
-        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.143.0-linux-x64.tgz",
-        "hash": "sha512-B6v6oUgBbjt1bL7yBbRp7e0vLiVOjRdz9Wykotve52Aq2H2TeiCqxM5BSOaFkmNO6VxE0seW7hTi2UZF9x8LLA=="
+        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.144.0-linux-x64.tgz",
+        "hash": "sha512-GmKtQeX+cO9lN7mQD1FEVcXYEMLMgMByHwZdvlluH0bj/+c2ind3hwbRtE3eECFDekNhEiB80Ez0FfbkyFQqoA=="
       },
       "aarch64-linux": {
         "package": "@openai/codex-linux-arm64",
         "targetTriple": "aarch64-unknown-linux-musl",
-        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.143.0-linux-arm64.tgz",
-        "hash": "sha512-1TMx1a/YBEY0SBhPGn8z9HjOpaDssw+WJiIi/+r0CB5uZf6qnALN02TrZTZl2PSUI8olnBf/VccjnwVCrzR38w=="
+        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.144.0-linux-arm64.tgz",
+        "hash": "sha512-k++xhZrn9P3laO00Q92APG6mdOFDD66nUBo+8ExCa1NXi2pjLEMLC4+UNJTUUtUT1PEflOZ5pDKxPXgzaiFFFg=="
       },
       "x86_64-darwin": {
         "package": "@openai/codex-darwin-x64",
         "targetTriple": "x86_64-apple-darwin",
-        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.143.0-darwin-x64.tgz",
-        "hash": "sha512-xHbrb/Qkj+ZZqYkAuio3mcFxpqlg/NNpBDz5iMKlGa7XfK3miUu6R50c9cRW1ZPQVRfRnFhs4l7OhI5u5r+HvA=="
+        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.144.0-darwin-x64.tgz",
+        "hash": "sha512-4p2jxRbN+Khg5UQzpkzT9upFj+qkEF/abmdvrtflkkWmVKP6Nt+yi8ospdqv9PDqvQ9SotPvX7iXaFaeUTrtmA=="
       },
       "aarch64-darwin": {
         "package": "@openai/codex-darwin-arm64",
         "targetTriple": "aarch64-apple-darwin",
-        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.143.0-darwin-arm64.tgz",
-        "hash": "sha512-hs9bPkE1c0+EtbHxxVfhaaGl1u6/LVdhEtOX5t9N+ri54yjMUkzKJLc7MOBa1DYRMDTWT+lPEfeB+8Fv9coTKg=="
+        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.144.0-darwin-arm64.tgz",
+        "hash": "sha512-rqFAJdOa2I0VRgepVsSZeLxs96+Y+LXTjccOOvH6894FyaFAYPZ/o+6hgpB1iGHxxdoY/DsGa8jrJC8Leqn9Kg=="
       }
     }
   },
