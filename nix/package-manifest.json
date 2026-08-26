@@ -3,7 +3,7 @@
   "package": {
     "repo": "codex",
     "npmName": "@openai/codex",
-    "version": "0.149.1"
+    "version": "0.150.0"
   },
   "binary": {
     "name": "codex",
@@ -19,26 +19,26 @@
     ]
   },
   "dist": {
-    "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.149.1.tgz",
-    "hash": "sha512-6q5pbcpFbJbqOpkubSDBwXmktQ55aD8eUzGzBF1zASob2DjwhBKDSNGtdZKalfrNJUdTDTPDMmzCXEXs5tMBYA==",
+    "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.150.0.tgz",
+    "hash": "sha512-AWrJENpRsvowLZeCEicYEmt4xD7EvSIX34+1DmFn7ZUwuX0Ku0/DMgouPHu5YKxJJF7/ixC1cIAu3oLSd8/H2g==",
     "platforms": {
       "x86_64-linux": {
         "package": "@openai/codex-linux-x64",
         "targetTriple": "x86_64-unknown-linux-musl",
-        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.149.1-linux-x64.tgz",
-        "hash": "sha512-Of5fGYgr7tAMsyj6vhXb4/RM/UoA3Zq8BLegUBDC09UNy1XTLGYP/2XD+UX8z3qh0NDwxYdCjFIWdDNijKZggQ=="
+        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.150.0-linux-x64.tgz",
+        "hash": "sha512-yWkFNr2ztdDHWHjY2SXQ3uWKzpE2aZ5HlDRMZ7PpMUP8LB9Wd6ZWyxWELAgDLucVWa4OYwHv5fJYzHSlEQtjHg=="
       },
       "aarch64-linux": {
         "package": "@openai/codex-linux-arm64",
         "targetTriple": "aarch64-unknown-linux-musl",
-        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.149.1-linux-arm64.tgz",
-        "hash": "sha512-OqxUfZ1TVvHd18zHPKK/8ZRlpk8Vy11mg5CMHaLxNWldTbwVImDKtSLWT+m8m4NM5Sz4PbjtZMrVT/RfpBW/mQ=="
+        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.150.0-linux-arm64.tgz",
+        "hash": "sha512-bqhyKuaYY5Wm6nT7dQZgdgvB6yvRo93sQYKG2W+0bCq1W6kSvEgfJYRQsknxTR/4/or+3VxGANLhAiGtXs4mfg=="
       },
       "x86_64-darwin": {
         "package": "@openai/codex-darwin-x64",
         "targetTriple": "x86_64-apple-darwin",
-        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.149.1-darwin-x64.tgz",
-        "hash": "sha512-MfLBQLfcElJL9tvj6y45qVHHMGSXCPnQOixuD3/Zq0g1BW/eFizkrGLdn48cFpc+l8cK+gt5nYG5pQYwVs6g4A=="
+        "url": "https://registry.npmjs.org/@openai/codex/-/codex-0.150.0-darwin-x64.tgz",
+        "hash": "sha512-vFr6CS0UAoA1p8a9N6tHzzGXzrxHH1wBNHQEVR59Wf/AhkAzdUTEkqFX2xaAztDTCYm/qwDuaK6NhDQWHl33eQ=="
       },
       "aarch64-darwin": {
         "package": "@openai/codex-darwin-arm64",
